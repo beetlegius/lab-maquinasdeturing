@@ -1,0 +1,40 @@
+<h2>Paso 3: agregar funciones para la máquina de Turing</h2>
+<p class="quiet">Completando el siguiente formulario podrá agregar una función.</p>
+<%= semantic_form_for @funcion, :url => maquina_funciones_path(@maquina) do |f| -%>
+  <%= f.inputs :agregar_funcion do -%>
+    <%= f.input :estado_actual, :collection => @maquina.estados %>
+    <%= f.input :simbolo_actual, :collection => @maquina.alfabeto_de_cinta %>
+    <%= f.input :estado_siguiente, :collection => @maquina.estados %>
+    <%= f.input :simbolo_siguiente, :collection => @maquina.alfabeto_de_cinta %>
+    <%= f.input :movimiento, :collection => Funcion::MOVIMIENTOS %>
+    <%= f.commit_button :agregar %>
+  <%- end -%>
+<%- end -%>
+<%- if @funciones.any? -%>
+  <h2>Funciones de la máquina <%= @maquina.nombre %></h2>
+  <p class="quiet">A continuación se listan todas las funciones de la máquina Turing.</p>
+  <hr />
+  <table class="listado">
+    <tr>
+      <th><%= Funcion.human_attribute_name :estado_actual %></th>
+      <th><%= Funcion.human_attribute_name :simbolo_actual %></th>
+      <th><%= Funcion.human_attribute_name :estado_siguiente %></th>
+      <th><%= Funcion.human_attribute_name :simbolo_siguiente %></th>
+      <th><%= Funcion.human_attribute_name :movimiento %></th>
+      <th colspan="2">Acciones</th>
+    </tr>
+    <%- for funcion in @funciones -%>
+      <tr class="<%= cycle("par","impar") %>">
+        <td><%= funcion.estado_actual %></td>
+        <td><%= funcion.simbolo_actual %></td>
+        <td><%= funcion.estado_siguiente %></td>
+        <td><%= funcion.simbolo_siguiente %></td>
+        <td><%= funcion.movimiento %></td>
+        <td class="accion"><%= link_to 'Modificar', edit_funcion_path(funcion), :class => :editar_funcion %></td>
+        <td class="accion"><%= link_to 'Eliminar', funcion_path(funcion), :method => :delete, :confirm => "¿Estás seguro que deseas eliminar esta función?", :class => :eliminar_funcion %></td>
+      </tr>
+    <%- end -%>
+  </table>
+  <h2>Paso 4: dar por terminada la máquina de Turing</h2>
+  <p class="quiet">Para terminar la máquina de Turing haga click <%= link_to "aquí", terminar_maquina_path(@maquina), :title => "Terminar máquina de Turing" %>.<br />Atención! una máquina de Turing terminada ya no podrá modificarse.</p>
+<%- end -%>

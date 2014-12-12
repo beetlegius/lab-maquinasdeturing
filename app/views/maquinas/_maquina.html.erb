@@ -1,0 +1,28 @@
+<table class="listado">
+  <tr class="titulo"><th colspan="5">Máquina de Turing</th></tr>
+  <tr><th>Nombre</th><td colspan="4"><%= maquina.nombre %></td></tr>
+  <tr><th>Descripción</th><td colspan="4"><%= maquina.descripcion %></td></tr>
+  <tr><th>Estados</th><td colspan="4"><%= maquina.estados.join(", ") %></td></tr>
+  <tr><th>Alfabeto de entrada</th><td colspan="4"><%= maquina.alfabeto_de_entrada.join(", ") %></td></tr>
+  <tr><th>Estado inicial</th><td colspan="4"><%= maquina.estado_inicial %></td></tr>
+  <tr><th>Estados de aceptación</th><td colspan="4"><%= maquina.estados_de_aceptacion.join(", ") %></td></tr>
+  <%- if funciones.any? -%>
+    <tr class="titulo"><th colspan="5">Funciones</th></tr>
+    <tr>
+      <th><%= Funcion.human_attribute_name :estado_actual %></th>
+      <th><%= Funcion.human_attribute_name :simbolo_actual %></th>
+      <th><%= Funcion.human_attribute_name :estado_siguiente %></th>
+      <th><%= Funcion.human_attribute_name :simbolo_siguiente %></th>
+      <th><%= Funcion.human_attribute_name :movimiento %></th>
+    </tr>
+    <%- for funcion in funciones -%>
+      <tr class="<%= cycle("par","impar") %>">
+        <td><%= funcion.estado_actual %></td>
+        <td><%= funcion.simbolo_actual %></td>
+        <td><%= funcion.estado_siguiente %></td>
+        <td><%= funcion.simbolo_siguiente %></td>
+        <td><%= funcion.movimiento %></td>
+      </tr>
+    <%- end -%>
+  <%- end -%>
+</table>

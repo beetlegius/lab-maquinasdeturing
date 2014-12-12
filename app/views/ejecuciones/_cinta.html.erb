@@ -1,0 +1,7 @@
+<ul class="cinta">
+  <li class="fade-invisible">-</li><li class="fade-visible">-</li><li>-</li>
+  <%- cinta.each_with_index do |elemento, indice| -%>
+    <%= content_tag :li, elemento, :class => (:actual if indice == posicion) %>
+  <%- end -%>
+  <li>-</li><li class="fade-visible">-</li><li class="fade-invisible">-</li>
+</ul>

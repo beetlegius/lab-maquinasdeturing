@@ -1,0 +1,11 @@
+<h2>Paso 1: Crear nueva máquina de Turing</h2>
+<p class="quiet">Completando el siguiente formulario podrá agregar una nueva máquina de Turing.</p>
+<%= semantic_form_for @maquina do |f| -%>
+  <%= f.inputs :agregar_maquina do -%>
+    <%= f.input :nombre %>
+    <%= f.input :descripcion %>
+    <%= f.input :estados, :as => :string, :input_html => { :value => "" } %>
+    <%= f.input :alfabeto_de_entrada, :as => :string, :input_html => { :value => "" } %>
+    <%= f.commit_button :siguiente %>
+  <%- end -%>
+<%- end -%>

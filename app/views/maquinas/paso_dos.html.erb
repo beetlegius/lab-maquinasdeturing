@@ -1,0 +1,16 @@
+<h2>Paso 2: configurar máquina de Turing</h2>
+<p class="quiet">Desde el siguiente formulario podrá configurar su máquina de Turing.</p>
+<hr />
+<h2><%= @maquina.nombre %></h2>
+<p class="quiet"><%= @maquina.descripcion %></p>
+<p class="quiet">
+  <%= Maquina.human_attribute_name :estados %>: <%= @maquina.estados.join(", ") %><br />
+  <%= Maquina.human_attribute_name :alfabeto_de_entrada %>: <%= @maquina.alfabeto_de_entrada.join(", ") %>
+</p>
+<%= semantic_form_for @maquina, :url => update_paso_dos_maquina_path(@maquina) do |f| -%>
+  <%= f.inputs :configurar_maquina do -%>
+    <%= f.input :estado_inicial, :as => :select, :collection => @maquina.estados %>
+    <%= f.input :estados_de_aceptacion, :as => :string %>
+    <%= f.commit_button :siguiente %>
+  <%- end -%>
+<%- end -%>

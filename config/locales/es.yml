@@ -1,0 +1,223 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  espere: "Espere..."
+  activerecord:
+    models:
+      maquina: "Máquina de Turing"
+      funcion: "Función"
+      ejecucion: "Ejecución"
+    attributes:
+      maquina:
+        nombre: "Nombre"
+        descripcion: "Descripción"
+        nombre_y_descripcion: "Nombre y descripción"
+        estados: "Estados"
+        alfabeto_de_entrada: "Alfabeto de entrada"
+        alfabeto_de_cinta: "Alfabeto de la cinta"
+        estado_inicial: "Estado inicial"
+        estados_de_aceptacion: "Estados de aceptación"
+      funcion:
+        funcion: "Función"
+        orden: "Orden"
+        estado_actual: "Estado actual"
+        simbolo_actual: "Símbolo actual"
+        estado_siguiente: "Estado siguiente"
+        simbolo_siguiente: "Símbolo siguiente"
+        movimiento: "Movimiento"
+        maquina: "Máquina"
+      ejecucion:
+        entrada: "Entrada"
+        estado_actual: "Estado actual"
+        numero_de_paso: "Número de paso"
+        numero_de_pasos_final: "Ciclos computacionales"
+        resultado_parcial: "Resultado parcial"
+        resultado_final: "Resultado final"
+        estado_final: "Estado final"
+        posicion_actual: "Posición actual"
+        posicion_final: "Posición actual"
+        termina_en_estado_de_aceptacion: "Aceptación"
+    errors:
+      template:
+        header:
+          one: "Un error ocurrió al guardar tus datos."
+          other: "{{count}} errores ocurrieron al guardar tus datos."
+        body: "Los siguientes campos presentan problemas:"
+      messages:
+        inclusion: "no está incluido en la lista"
+        exclusion: "no está disponible"
+        invalid: "no es válido"
+        confirmation: "no coincide con la confirmación"
+        accepted: debe ser aceptado
+        empty: "no puede estar vacío"
+        blank: no puede estar en blanco
+        too_long: "es demasiado largo (el máximo es de {{count}} caracteres)"
+        too_short: "es demasiado corto (el mínimo es de {{count}} caracteres)"
+        wrong_length: "no posee el largo correcto (debería ser de {{count}} caracteres)"
+        taken: "no está disponible"
+        not_a_number: "no es un número"
+        greater_than: debe ser mayor a {{count}}
+        greater_than_or_equal_to: debe ser mayor o igual a {{count}}
+        equal_to: debe ser igual a {{count}}
+        less_than: debe ser menor que {{count}}
+        less_than_or_equal_to: debe ser menor o igual que {{count}}
+        odd: debe ser par
+        even: debe ser impar
+
+  formtastic:
+    titles:
+      agregar_maquina: "Nueva máquina de Turing"
+      editar_maquina: "Editar máquina de Turing"
+      configurar_maquina: "Configurar máquina de Turing"
+      agregar_funcion: "Agregar función"
+    hints:
+      estados: "Los estados deben estar separados por coma, sin espacio. Ejemplo: q0,q1,q2,q3"
+      alfabeto_de_entrada: "El alfabeto de entrada debe estar separados por coma. Ejemplo: 0,1,2,3,jj,pppp"
+    actions:
+      agregar: "Agregar"
+      editar: "Guardar cambios"
+      funciones: "Ver funciones!"
+      siguiente: "Siguiente paso"
+      ejecutar: "Ejecutar!"
+
+  date:
+    formats:
+      default: "%e/%m/%Y"
+      short: "%e %b"
+      long: "%e de %B de %Y"
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - "miércoles"
+    - jueves
+    - viernes
+    - "sábado"
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mie
+    - jue
+    - vie
+    - sab
+    month_names:
+    -
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    abbr_month_names:
+    -
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - set
+    - oct
+    - nov
+    - dic
+    order:
+    - :day
+    - :month
+    - :year
+  time:
+    formats:
+      default: "%A, %e de %B de %Y, %H:%M hs"
+      short: "%e/%m, %H:%M hs"
+      long: "%A, %e de %B de %Y, %H:%M hs"
+    am: am
+    pm: pm
+  datetime:
+    distance_in_words:
+      half_a_minute: medio minuto
+      less_than_x_seconds:
+        zero: menos de 1 segundo
+        one: menos de 1 segundo
+        other: menos de {{count}} segundos
+      x_seconds:
+        one: 1 second
+        other: "{{count}} seconds"
+      less_than_x_minutes:
+        zero: menos de 1 minuto
+        one: menos de 1 minuto
+        other: menos de {{count}} minutos
+      x_minutes:
+        one: 1 minuto
+        other: "{{count}} minutos"
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente {{count}} horas
+      x_days:
+        one: "1 día"
+        other: "{{count}} días"
+      about_x_months:
+        one: aproximandamente 1 mes
+        other: aproximadamente {{count}} mes
+      x_months:
+        one: 1 month
+        other: "{{count}} mes"
+      about_x_years:
+        one: "aproximadamente 1 año"
+        other: "aproximadamente {{count}} años"
+      over_x_years:
+        one: "más de 1 año"
+        other: "más de {{count}} años"
+    prompts:
+      year:   "Año"
+      month:  "Mes"
+      day:    "Día"
+      hour:   "Hora"
+      minute: "Minuto"
+      second: "Segundos"
+
+  number:
+    percentage:
+      format:
+        delimiter: "."
+    precision:
+      format:
+        delimiter: "."
+    human:
+      format:
+        delimiter: "."
+        precision: "2"
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "byte"
+            other: "bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+    format:
+      precision: 3
+      separator: ","
+      delimiter: .
+    currency:
+      format:
+        unit: $
+        precision: 2
+        format: "%u %n"
+        separator: ","
+        delimiter: "."
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " y "
+      last_word_connector: " y "

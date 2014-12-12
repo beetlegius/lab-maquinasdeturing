@@ -1,0 +1,24 @@
+<%= render @maquina, :funciones => @funciones %>
+<h2>Ejecuciones de la máquina</h2>
+<table class="listado">
+  <tr>
+    <th><%= Ejecucion.human_attribute_name :entrada %></th>
+    <th><%= Ejecucion.human_attribute_name :termina_en_estado_de_aceptacion %></th>
+    <th><%= Ejecucion.human_attribute_name :numero_de_pasos_final %></th>
+    <th>Acciones</th>
+  </tr>
+  <%- for ejecucion in @ejecuciones -%>
+    <tr class="<%= cycle("par","impar") %>">
+      <td><%= ejecucion.entrada.join(", ") %></td>
+      <td><%= ejecucion.termina_en_estado_de_aceptacion? ? "Sí" : "No" unless ejecucion.termina_en_estado_de_aceptacion.nil? %></td>
+      <td><%= ejecucion.numero_de_pasos_final %></td>
+      <td><%= link_to "Ejecutar", ejecucion, :title => "Ejecutar", :class => :ejecutar %></td>
+    </tr>
+  <%- end -%>
+</table>
+<%= semantic_form_for [@maquina, @ejecucion] do |f| -%>
+  <%= f.inputs :class => "entrada" do -%>
+    <%= f.input :entrada, :input_html => { :value => "" } %>
+    <%= f.commit_button :ejecutar %>
+  <%- end -%>
+<%- end -%>

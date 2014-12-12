@@ -1,0 +1,33 @@
+/* -------------------------------------------------------------------------------------------------
+
+Load this stylesheet after formtastic.css in your layouts to override the CSS to suit your needs.
+This will allow you to update formtastic.css with new releases without clobbering your own changes.
+
+For example, to make the inline hint paragraphs a little darker in color than the standard #666:
+
+form.formtastic fieldset > ol > li p.inline-hints { color:#333; }
+
+HINT:
+The following style may be *conditionally* included for improved support on older versions of IE(<8)
+form.formtastic fieldset ol li fieldset legend { margin-left: -6px;}
+
+--------------------------------------------------------------------------------------------------*/
+
+form.formtastic > fieldset > ol > li.error { background-color: transparent; border: none; }
+form.formtastic > fieldset > ol > li.error > input { border: 1px solid #600; }
+form.formtastic > fieldset > ol > li > p.inline-hints,
+form.formtastic > fieldset > ol > li.error > p.inline-errors { margin-left: 204px; font-size: 0.9em; }
+
+/* Genérico */
+
+form.formtastic > fieldset { border: 1px solid #ccc; background-color: #f2f2f2; padding: 20px 10px; margin: 10px auto; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }
+form.formtastic > fieldset > legend { margin-left: 10px; border: 1px solid #ccc; background-color: #f4f4f4; padding: 5px 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }
+form.formtastic > fieldset > ol > li > label { font-size: 1.286em; width: 200px; line-height: 24px; padding: 2px; }
+form.formtastic > fieldset > ol > li > input,
+form.formtastic > fieldset > ol > li > select,
+form.formtastic > fieldset > ol > li > textarea { font-size: 1.286em; padding: 2px; line-height: 24px; width: 470px; max-width: 470px; min-width: 470px; }
+form.formtastic > fieldset > ol > li > textarea { height: 150px; }
+form.formtastic > fieldset > ol > li > input[type=submit] { max-width: 140px; min-width: 140px; width: 140px; border: 1px solid #ccc; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; cursor: pointer; }
+form.formtastic > fieldset > ol > li > input[type=submit]:hover { border-color: #999; }
+
+form.formtastic > fieldset.entrada > ol > li > textarea { font-family: Courier, Arial, Helvetica, monospace; }

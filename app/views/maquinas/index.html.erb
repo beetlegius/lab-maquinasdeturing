@@ -1,0 +1,19 @@
+<h2>Listado de Máquinas de Turing</h2>
+<p class="quiet">A continuación se listan todas las máquinas de Turing creadas por la comunidad.</p>
+<%- if @maquinas.any? -%>
+  <table class="listado">
+    <tr>
+      <th><%= Maquina.human_attribute_name :nombre_y_descripcion %></th>
+      <th>Acciones</th>
+    </tr>
+    <%- for maquina in @maquinas -%>
+      <tr class="<%= cycle("par","par","impar","impar") %>">
+        <td class="titulo"><%= maquina.nombre %></td>
+        <td class="accion"><%= link_to 'Ver máquina', maquina, :class => :ver_maquinas %><%= link_to 'Editar máquina', edit_maquina_path(maquina), :class => :editar_maquina unless maquina.terminada? %><%= link_to 'Funciones', maquina_funciones_path(maquina), :class => :editar_funcion unless maquina.terminada? %></td>
+      </tr>
+      <tr class="<%= cycle("par","par","impar","impar") %>">
+        <td colspan="2"><%= maquina.descripcion %></td>
+      </tr>
+    <%- end -%>
+  </table>
+<%- end -%>

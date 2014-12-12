@@ -1,0 +1,9 @@
+<%- if @ejecucion.termino? -%>
+  $("#ejecucion_resultado th").html("<%= Ejecucion.human_attribute_name :resultado_final %>");
+  $("#ejecucion_resultado td").html("<%= escape_javascript render("cinta", :cinta => @ejecucion.resultado_final, :posicion => @ejecucion.posicion_final) %>").effect("highlight", {}, 500);
+  $("#accion").removeClass("accion").addClass("termino").html("<%= escape_javascript link_to("Reiniciar", reiniciar_ejecucion_path(@ejecucion), :title => "Reiniciar ejecución") %>");
+<%- else -%>
+  $("#ejecucion_resultado td").html("<%= escape_javascript render("cinta", :cinta => @ejecucion.resultado_parcial, :posicion => @ejecucion.posicion_actual) %>").effect("highlight", {}, 500);
+<%- end -%>
+$("#ejecucion_estado_actual").html("<%= @ejecucion.estado_actual %>").effect("highlight", {}, 500);
+$("#ejecucion_numero_de_paso").html("<%= @ejecucion.numero_de_paso %>").effect("highlight", {}, 500);

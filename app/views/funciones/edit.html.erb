@@ -1,0 +1,12 @@
+<h2>Modificar función</h2>
+<p class="quiet">Desde el siguiente formulario podrá modificar una función de su máquina de Turing.</p>
+<%= semantic_form_for @funcion do |f| -%>
+  <%= f.inputs :editar_funcion do -%>
+    <%= f.input :estado_actual, :collection => @maquina.estados %>
+    <%= f.input :simbolo_actual, :collection => @maquina.alfabeto_de_cinta %>
+    <%= f.input :estado_siguiente, :collection => @maquina.estados %>
+    <%= f.input :simbolo_siguiente, :collection => @maquina.alfabeto_de_cinta %>
+    <%= f.input :movimiento, :collection => Funcion::MOVIMIENTOS %>
+    <%= f.commit_button :editar %>
+  <%- end -%>
+<%- end -%>

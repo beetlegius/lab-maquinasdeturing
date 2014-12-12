@@ -1,0 +1,16 @@
+<h2>Editar máquina de Turing</h2>
+<p class="quiet">Desde el siguiente formulario podrá editar su máquina de Turing.</p>
+<hr />
+<h2><%= @maquina.nombre %></h2>
+<p class="quiet"><%= @maquina.descripcion %></p>
+<p class="quiet"><%= Maquina.human_attribute_name :estados %>: <%= @maquina.estados.join(",") %><br />
+  <%= Maquina.human_attribute_name :alfabeto_de_entrada %>: <%= @maquina.alfabeto_de_entrada.join(",") %><br />
+  <%= Maquina.human_attribute_name :estado_inicial %>: <%= @maquina.estado_inicial %><br />
+  <%= Maquina.human_attribute_name :estados_de_aceptacion %>: <%= @maquina.estados_de_aceptacion.join(",") %></p>
+<%= semantic_form_for @maquina do |f| -%>
+  <%= f.inputs :editar_maquina do -%>
+    <%= f.input :nombre %>
+    <%= f.input :descripcion %>
+    <%= f.commit_button :editar %>
+  <%- end -%>
+<%- end -%>

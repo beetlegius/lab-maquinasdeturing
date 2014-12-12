@@ -1,0 +1,30 @@
+<h2>Ejecución</h2>
+<p class="quiet">A continuación se detalla la ejecución paso a paso.</p>
+<table class="listado ejecucion">
+  <tr class="titulo"><th colspan="2">Ejecución</th></tr>
+  <tr><th><%= Ejecucion.human_attribute_name :entrada %></th><td><%= render "cinta", :cinta => @ejecucion.entrada, :posicion => 0 %></td></tr>
+  <tr><th><%= Ejecucion.human_attribute_name :numero_de_paso %></th><td id="ejecucion_numero_de_paso"><%= @ejecucion.numero_de_paso %></td></tr>
+  <tr><th><%= Ejecucion.human_attribute_name :estado_actual %></th><td id="ejecucion_estado_actual"><%= @ejecucion.estado_actual %></td></tr>
+  <%- if @ejecucion.termino? -%>
+    <tr id="ejecucion_resultado"><th><%= Ejecucion.human_attribute_name :resultado_final %></th><td><%= render "cinta", :cinta => @ejecucion.resultado_final, :posicion => @ejecucion.posicion_final %></td></tr>
+  <%- else -%>
+    <tr id="ejecucion_resultado"><th><%= Ejecucion.human_attribute_name :resultado_parcial %></th><td><%= render "cinta", :cinta => @ejecucion.resultado_parcial, :posicion => @ejecucion.posicion_actual %></td></tr>
+  <%- end -%>
+</table>
+<%- if @ejecucion.termino? -%>
+  <h3 id="accion" class="termino"><%= link_to "Reiniciar", reiniciar_ejecucion_path(@ejecucion), :title => "Reiniciar ejecución" %></h3>
+<%- else -%>
+  <h3 id="accion" class="accion"><%= link_to "Siguiente paso >", ejecutar_ejecucion_path(@ejecucion), :remote => true, :method => :put, :title => "Avanzar un paso" %></h3>
+<%- end -%>
+<%= render @maquina, :funciones => @funciones %>
+<%- if @ejecucion.ejecutada_al_menos_una_vez? -%>
+  <hr />
+  <p>Esta ejecución ya fue realizada con anterioridad y el resultado fue y siempre será el siguiente:</p>
+  <table class="listado ejecucion">
+    <tr class="titulo"><th colspan="2">Resultados</th></tr>
+    <tr><th><%= Ejecucion.human_attribute_name :resultado_final %></th><td><%= render "cinta", :cinta => @ejecucion.resultado_final, :posicion => @ejecucion.posicion_final %></td></tr>
+    <tr><th><%= Ejecucion.human_attribute_name :numero_de_pasos_final %></th><td><%= @ejecucion.numero_de_pasos_final %></td></tr>
+    <tr><th><%= Ejecucion.human_attribute_name :estado_final %></th><td><%= @ejecucion.estado_final %></td></tr>
+    <tr><th><%= Ejecucion.human_attribute_name :termina_en_estado_de_aceptacion %></th><td><%= @ejecucion.termina_en_estado_de_aceptacion? ? 'Sí' : 'No' %></td></tr>
+  </table>
+<%- end -%>

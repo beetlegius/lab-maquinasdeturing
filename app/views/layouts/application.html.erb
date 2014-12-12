@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Máquinas de Turing</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta lang="es-AR" name="keywords" content="Máquinas de Turing" />
+    <meta lang="es-AR" name="description" content="Máquinas de Turing" />
+    <meta lang="es-AR" name="author" content="Xavier Perera y Gustavo Molinari" />
+    <meta name="language" content="es-AR" />
+    <meta name="robots" content="index, follow" />
+    <%= favicon_link_tag "favicon.png" %>
+    <%= stylesheet_link_tag :application %>
+    <%= javascript_include_tag :application %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div id="header" class="encabezado">
+      <%= link_to (image_tag "maquinas-de-turing.png", :alt => "Máquina de Turing"), root_path, :title => "Ir al inicio" %>
+    </div>
+    <div id="container" class="container">
+      <div class="column span-6">
+        <h2>Menu</h2>
+        <ul id="nav">
+          <li><%= link_to "Nueva máquina", new_maquina_path, :title => "Nueva máquina", :class => :nueva_maquina %></li>
+          <li><%= link_to "Ver máquinas", maquinas_path, :title => "Ver máquinas", :class => :ver_maquinas %></li>
+        </ul>
+      </div>
+      <div class="column span-18 last">
+        <%= content_tag :p, notice, :class => :aviso if notice.present? %>
+        <%= yield %>
+      </div>
+    </div>
+    <div id="footer" class="pie"><hr /><p>Máquinas de Turing 2010 ® | La Plata, Buenos Aires, Argentina | info@xaver.com.ar<br /><span class="small">UNLP - FACULTAD DE INFORMÁTICA - COMPUTABILIDAD Y COMPLEJIDAD | XAVIER PERERA Y GUSTAVO MOLINARI</span></p></div>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-2215132-51']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
