@@ -60,7 +60,7 @@ Maquinasdeturing::Application.configure do
 
   config.middleware.use ExceptionNotifier,
     sender_address: 'info@maquinasdeturing.com.ar',
-    exception_recipients: 'errores@xaver.com.ar',
+    exception_recipients: 'info+error@beetlegius.com.ar',
     ignore_exceptions: ExceptionNotifier.default_ignore_exceptions
 
   config.action_mailer.smtp_settings = {
